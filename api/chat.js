@@ -6,14 +6,14 @@ module.exports = async (req, res) => {
   const { conversation } = req.body;
 
   const configuration = new Configuration({
-    apiKey: process.env.OPENAI_API_KEY, // Asegúrate de configurar esta variable de entorno en Vercel
+    apiKey: process.env.OPENAI_API_KEY, // Asegúrate de configurar esta variable de entorno
   });
 
   const openai = new OpenAIApi(configuration);
 
   try {
     const completion = await openai.createChatCompletion({
-      model: 'gpt-4', // Puedes usar 'gpt-4' si tienes acceso
+      model: 'gpt-4', // Cambia a 'gpt-3.5-turbo' si no tienes acceso a 'gpt-4'
       messages: conversation,
     });
 
