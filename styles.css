@@ -1,0 +1,228 @@
+/* Estilos globales y reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'League Spartan', sans-serif;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+/* Contenedor principal */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+/* Estilos del header */
+header {
+  background-color: #ff3131; /* Color de tema #ff3131 */
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 40px;
+  margin-right: 10px;
+}
+
+header h1 {
+  color: #fff;
+  font-size: 24px;
+}
+
+/* Estilos del main */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#chat-window {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #fafafa;
+}
+
+.message {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: flex-end;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message.bot {
+  justify-content: flex-start;
+}
+
+.message-content {
+  max-width: 75%;
+  padding: 12px 18px;
+  border-radius: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  position: relative;
+  word-wrap: break-word;
+}
+
+.message.user .message-content {
+  background-color: #ff3131; /* Color de tema #ff3131 */
+  color: #fff;
+  border-bottom-right-radius: 0;
+}
+
+.message.bot .message-content {
+  background-color: #e0e0e0;
+  color: #333;
+  border-bottom-left-radius: 0;
+}
+
+.message.user .message-content::after,
+.message.bot .message-content::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+}
+
+.message.user .message-content::after {
+  right: -10px;
+  border-left: 10px solid #ff3131; /* Color de tema #ff3131 */
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.message.bot .message-content::after {
+  left: -10px;
+  border-right: 10px solid #e0e0e0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+/* Estilos de la entrada de texto */
+.input-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border-top: 1px solid #ddd;
+}
+
+#user-input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#user-input:focus {
+  border-color: #ff3131; /* Color de tema #ff3131 */
+}
+
+#send-btn {
+  background-color: #ff3131; /* Color de tema #ff3131 */
+  border: none;
+  margin-left: 10px;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#send-btn:hover {
+  background-color: #e02626;
+}
+
+#send-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+}
+
+/* Barra de WhatsApp en el pie de página */
+footer {
+  background-color: #25d366;
+  padding: 10px;
+  text-align: center;
+}
+
+.whatsapp-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.whatsapp-bar img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.whatsapp-bar span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.whatsapp-bar:hover {
+  background-color: #1ebe5d;
+  transition: background-color 0.3s;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 600px) {
+  header h1 {
+    font-size: 20px;
+  }
+
+  .logo {
+    width: 35px;
+  }
+
+  .message-content {
+    font-size: 14px;
+  }
+
+  #user-input {
+    font-size: 14px;
+  }
+
+  #send-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .whatsapp-bar span {
+    font-size: 14px;
+  }
+}
