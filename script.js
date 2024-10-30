@@ -148,7 +148,7 @@ window.onload = () => {
     addMessage('bot', '¡Hola! Soy Zentix™, el asistente virtual de <strong>MiniTienda Express</strong>. Estoy aquí para ayudarte.');
     setTimeout(() => {
       addMessage('bot', questions[step]);
-      step++;
+      // No incrementamos 'step' aquí
     }, 1000);
   }, 500);
 };
