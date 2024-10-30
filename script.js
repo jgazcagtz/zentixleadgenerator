@@ -87,7 +87,7 @@ window.onload = () => {
 
 // Función para enviar datos a Google Sheets
 async function sendDataToGoogleSheet(data) {
-  const scriptURL = 'TU_URL_DEL_WEB_APP_DE_GOOGLE_APPS_SCRIPT';
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbw2UnDyS_uw4YeXULc47iKeBeD5XASDJLTBF1VsqL9Q7vK27i-_Fabz1B8GZ-cSsAzU2w/exec';
 
   try {
     const response = await fetch(scriptURL, {
